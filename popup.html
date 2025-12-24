@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProductsDock</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚢 ProductsDock</h1>
+      <div class="header-actions">
+        <button id="dashboardBtn" class="icon-btn" title="Open Dashboard">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+        </button>
+        <button id="refreshBtn" class="icon-btn" title="Refresh">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="track">Track Product</button>
+      <button class="tab-btn" data-tab="saved">Saved</button>
+      <button class="tab-btn" data-tab="search">Search</button>
+    </div>
+
+    <div class="tab-content">
+      <!-- Track Product Tab -->
+      <div id="trackTab" class="tab-pane active">
+        <div class="current-page" id="currentPage">
+          <p class="helper-text">📍 Detect product on current page</p>
+          <button id="detectBtn" class="btn btn-primary">Detect Product</button>
+        </div>
+
+        <div class="manual-add">
+          <h3>Or Add Manually</h3>
+          <form id="addProductForm">
+            <input type="text" id="productName" placeholder="Product Name" required>
+            <input type="url" id="productUrl" placeholder="Product URL" required>
+            <input type="number" id="productPrice" placeholder="Price" step="0.01">
+            <input type="url" id="productImage" placeholder="Image URL (optional)">
+            <button type="submit" class="btn btn-success">Add Product</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Saved Products Tab -->
+      <div id="savedTab" class="tab-pane">
+        <div class="stats-bar">
+          <div class="stat">
+            <span class="stat-label">Total</span>
+            <span class="stat-value" id="totalProducts">0</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Watching</span>
+            <span class="stat-value" id="watchingProducts">0</span>
+          </div>
+        </div>
+        <div id="savedProductsList" class="products-list"></div>
+      </div>
+
+      <!-- Search Tab -->
+      <div id="searchTab" class="tab-pane">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search products on Amazon...">
+          <button id="searchBtn" class="btn btn-primary">Search</button>
+        </div>
+        <div id="searchResults" class="products-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+/* Content script styles - minimal to avoid conflicts */
+
+.productsdock-highlight {
+  outline: 3px solid #667eea !important;
+  outline-offset: 2px !important;
+  animation: productsdock-pulse 2s infinite;
+}
+
+@keyframes productsdock-pulse {
+  0%, 100% {
+    outline-color: #667eea;
+  }
+  50% {
+    outline-color: #764ba2;
+  }
+}
+
+.productsdock-badge {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 999999;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.productsdock-badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+}
+
+.productsdock-badge::before {
+  content: '🚢';
+  font-size: 18px;
+}
